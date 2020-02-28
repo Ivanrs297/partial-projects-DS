@@ -12,8 +12,8 @@ def open_pdf():
         os.system('AcroRd32.exe /A "page=5=OpenActions" ../present.pdf')
         
 
-HOST = socket.gethostname()
-# HOST = "10.0.5.234"
+# HOST = socket.gethostname()
+HOST = "10.0.5.234"
 PORT = 4000
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

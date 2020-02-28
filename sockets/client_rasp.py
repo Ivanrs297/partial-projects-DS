@@ -30,6 +30,7 @@ def establish_connection():
 
 
 currentDT = datetime.datetime.now()
+
 while True:
     if currentDT.hour == 20 and not in_connection:
         in_connection = True
