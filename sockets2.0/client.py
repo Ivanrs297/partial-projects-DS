@@ -5,6 +5,9 @@ import pymongo
 from pymongo import MongoClient
 import cloudinary
 import cloudinary.uploader
+import os
+import webbrowser
+
 
 # Globals:
 in_connection = False
@@ -32,8 +35,12 @@ cloudinary.config(
   api_secret = '5zNWkLE3ii-a1MrmC7jziLv6WOE'  
 )
 
-def upload_image_to_cloudinary(img_name):
-	cloudinary.uploader.upload(img_name)
+def upload_img_to_cloudinary(img_name):
+	cloudinary.uploader.upload(img_name, public_id = img_name)
+
+def get_img_from_cloudinary(img_name):
+	return cloudinary.utils.cloudinary_url(img_name)
+
 
 def get_schedule():
 	schedules = db.find()
@@ -69,8 +76,8 @@ def is_time_of_assignement():
 	now = datetime.datetime.now()
 	assignatures_schedule = get_schedule()
 	for a in assignatures_schedule:
-		# if now.today().strftime("%A") == a["day"] and now.hour <= float(a["finish"]):
-		if now.today().strftime("%A") == a["day"]:
+		if now.today().strftime("%A") == a["day"] and now.hour >= float(a["start"]) and now.hour <= float(a["finish"]):
+		# if now.today().strftime("%A") == a["day"]:
 			print(f"Assignature: {a['class']}" )
 			return True
 	return False
@@ -87,7 +94,10 @@ while False:
 
 
 		
-
+# upload_img_to_cloudinary("anime.jpeg")
+img = get_img_from_cloudinary("anime.jpeg")
+img = f'{img[0]}.jpeg'
+webbrowser.open(img)  # Go to example.com
 
 
 
