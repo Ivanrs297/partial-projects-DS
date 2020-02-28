@@ -1,6 +1,11 @@
+# Client for PC
+
+
 import socket
 
-HOST = socket.gethostname()
+# HOST = socket.gethostname()
+# HOST = "10.0.5.239"
+HOST = "192.168.0.134"
 PORT = 4000
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
