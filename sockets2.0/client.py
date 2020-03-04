@@ -82,11 +82,12 @@ def is_time_of_assignement():
 			return True
 	return False
 
-while False:
+while True:
 	time.sleep(3)
 
 	# If its time of a assignature, then show de PDF presentation
-	if not in_connection and is_time_of_assignement() :
+	# if not in_connection and is_time_of_assignement() :
+	if not in_connection :
 		in_connection = True
 		create_client_msg(socket.gethostname(), 4000, open_pdf("present"))
 
@@ -95,9 +96,9 @@ while False:
 
 		
 # upload_img_to_cloudinary("anime.jpeg")
-img = get_img_from_cloudinary("anime.jpeg")
-img = f'{img[0]}.jpeg'
-webbrowser.open(img)  # Go to example.com
+# img = get_img_from_cloudinary("anime.jpeg")
+# img = f'{img[0]}.jpeg'
+# webbrowser.open(img)  # Go to example.com
 
 
 
