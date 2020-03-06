@@ -19,8 +19,7 @@ import os
 import platform
 from tinydb import TinyDB, Query
 
-
-HOST = 'localhost'
+HOST = '10.0.5.234'
 PORT = 4000
 
 # Define Server

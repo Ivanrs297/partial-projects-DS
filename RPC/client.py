@@ -1,7 +1,7 @@
 
 import xmlrpc.client
 
-PROXY_HOST = 'http://localhost'
+PROXY_HOST = 'http://10.0.5.234'
 PROXY_PORT = '4000'
 PROXY_ENDPOINT = f'{PROXY_HOST}:{PROXY_PORT}'
 
