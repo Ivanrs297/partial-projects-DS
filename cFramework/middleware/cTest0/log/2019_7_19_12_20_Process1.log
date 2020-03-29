@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>12</hour><minute>20</minute><second>35</second><milisecond>325</milisecond></time><data><developer>272838470847763394</developer></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>38</second><milisecond>333</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>38</second><milisecond>333</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>38</second><milisecond>333</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>38</second><milisecond>333</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>43</second><milisecond>333</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>43</second><milisecond>333</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>43</second><milisecond>333</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>43</second><milisecond>334</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>48</second><milisecond>334</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>48</second><milisecond>334</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>48</second><milisecond>334</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>48</second><milisecond>334</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>53</second><milisecond>334</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>53</second><milisecond>334</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>53</second><milisecond>334</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>58</second><milisecond>335</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>58</second><milisecond>335</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>20</minute><second>58</second><milisecond>335</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>3</second><milisecond>335</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>3</second><milisecond>335</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>3</second><milisecond>335</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>8</second><milisecond>335</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>8</second><milisecond>336</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>8</second><milisecond>336</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>13</second><milisecond>336</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>13</second><milisecond>336</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>13</second><milisecond>336</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>18</second><milisecond>336</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>18</second><milisecond>337</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>18</second><milisecond>337</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>23</second><milisecond>337</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>23</second><milisecond>337</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>21</minute><second>23</second><milisecond>337</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+</log>

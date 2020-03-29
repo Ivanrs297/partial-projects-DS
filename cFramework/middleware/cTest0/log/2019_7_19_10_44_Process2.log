@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>10</hour><minute>44</minute><second>17</second><milisecond>347</milisecond></time><data><developer>272838475142730691</developer></data></record>
+<record><time><hour>10</hour><minute>44</minute><second>20</second><milisecond>357</milisecond></time><data><receive> <sender> <name>Area2</name></sender> </receive></data></record>
+<record><time><hour>10</hour><minute>44</minute><second>20</second><milisecond>358</milisecond></time><data><INFO>Recivido en area 2</INFO></data></record>
+</log>

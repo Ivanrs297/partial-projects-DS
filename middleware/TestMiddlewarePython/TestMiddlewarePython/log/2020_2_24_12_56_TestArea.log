@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>12</hour><minute>56</minute><second>12</second><milisecond>597</milisecond></time><data><developer>-4650155323238121472</developer></data></record>
+<record><time><hour>12</hour><minute>56</minute><second>12</second><milisecond>606</milisecond></time><data><developer>Adding Python Proccess Test_1</developer></data></record>
+<record><time><hour>12</hour><minute>56</minute><second>12</second><milisecond>616</milisecond></time><data><INFO>python "C:\Users\arman\Documents\projects\Cinvestav\TestMiddlewarePython\build\classes\middlewarePython\ProcessWrapper.py" Test_1 192.168.0.14:60599 261 "C:\Users\arman\Documents\projects\Cinvestav\cFramework\dist\cFramework.jar;C:\Users\arman\Documents\projects\Cinvestav\TestMiddlewarePython\build\classes"</INFO></data></record>
+<record><time><hour>12</hour><minute>56</minute><second>15</second><milisecond>756</milisecond></time><data><INFO>NOT FOUND, Looking for:TestArea_1</INFO></data></record>

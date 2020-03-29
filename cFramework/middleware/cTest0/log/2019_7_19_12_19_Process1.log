@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>12</hour><minute>19</minute><second>29</second><milisecond>301</milisecond></time><data><developer>272838470847763394</developer></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>32</second><milisecond>308</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>32</second><milisecond>308</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>32</second><milisecond>308</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>32</second><milisecond>308</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>37</second><milisecond>308</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>37</second><milisecond>309</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>37</second><milisecond>309</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>37</second><milisecond>309</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>42</second><milisecond>309</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>42</second><milisecond>309</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>42</second><milisecond>309</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>42</second><milisecond>310</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>47</second><milisecond>309</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>47</second><milisecond>310</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>47</second><milisecond>310</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>47</second><milisecond>310</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>52</second><milisecond>310</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>52</second><milisecond>310</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>52</second><milisecond>310</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>52</second><milisecond>311</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>57</second><milisecond>310</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>57</second><milisecond>311</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>57</second><milisecond>311</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>57</second><milisecond>311</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+</log>

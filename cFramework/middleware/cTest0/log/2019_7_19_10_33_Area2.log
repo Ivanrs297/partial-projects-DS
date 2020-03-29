@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>10</hour><minute>33</minute><second>37</second><milisecond>984</milisecond></time><data><developer>272838471788265472</developer></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>37</second><milisecond>984</milisecond></time><data><developer>Adding class Area2.Process2</developer></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>40</second><milisecond>993</milisecond></time><data><INFO>Recivido area 2</INFO></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>40</second><milisecond>993</milisecond></time><data><SEND><to>Process2</to></SEND></data></record>
+</log>

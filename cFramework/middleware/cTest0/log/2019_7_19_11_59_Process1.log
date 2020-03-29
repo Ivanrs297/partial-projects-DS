@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>11</hour><minute>59</minute><second>38</second><milisecond>255</milisecond></time><data><developer>272838470847763394</developer></data></record>
+<record><time><hour>11</hour><minute>59</minute><second>41</second><milisecond>266</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>11</hour><minute>59</minute><second>41</second><milisecond>267</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>11</hour><minute>59</minute><second>41</second><milisecond>267</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+<record><time><hour>11</hour><minute>59</minute><second>41</second><milisecond>267</milisecond></time><data><INFO>NOT FOUND, Looking for:Area2</INFO></data></record>
+</log>

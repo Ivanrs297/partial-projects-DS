@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>10</hour><minute>33</minute><second>37</second><milisecond>980</milisecond></time><data><developer>272838470847763394</developer></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>40</second><milisecond>992</milisecond></time><data><receive> <sender> <name>Area1</name></sender> </receive></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>40</second><milisecond>992</milisecond></time><data><INFO>Recibido en proceso 1</INFO></data></record>
+<record><time><hour>10</hour><minute>33</minute><second>40</second><milisecond>992</milisecond></time><data><SEND><to>Area2</to></SEND></data></record>
+</log>

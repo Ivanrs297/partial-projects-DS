@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>12</hour><minute>19</minute><second>29</second><milisecond>297</milisecond></time><data><developer>272838467493298176</developer></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>29</second><milisecond>300</milisecond></time><data><developer>Adding class Area1.Process1</developer></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>32</second><milisecond>307</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>37</second><milisecond>308</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>42</second><milisecond>308</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>47</second><milisecond>309</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>52</second><milisecond>309</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+<record><time><hour>12</hour><minute>19</minute><second>57</second><milisecond>310</milisecond></time><data><SEND><to>Process1</to></SEND></data></record>
+</log>

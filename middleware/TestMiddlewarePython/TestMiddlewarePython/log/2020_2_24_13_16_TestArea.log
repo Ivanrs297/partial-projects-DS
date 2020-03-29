@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>13</hour><minute>16</minute><second>10</second><milisecond>960</milisecond></time><data><developer>-4650155323238121472</developer></data></record>
+<record><time><hour>13</hour><minute>16</minute><second>10</second><milisecond>970</milisecond></time><data><developer>Adding Python Proccess Test_1</developer></data></record>
+<record><time><hour>13</hour><minute>16</minute><second>10</second><milisecond>982</milisecond></time><data><INFO>python "C:\Users\arman\Documents\projects\Cinvestav\TestMiddlewarePython\build\classes\middlewarePython\ProcessWrapper.py" Test_1 192.168.0.14:60708 261 "C:\Users\arman\Documents\projects\Cinvestav\cFramework\dist\cFramework.jar;C:\Users\arman\Documents\projects\Cinvestav\TestMiddlewarePython\build\classes"</INFO></data></record>
+<record><time><hour>13</hour><minute>16</minute><second>14</second><milisecond>178</milisecond></time><data><SEND><to>TestArea_1</to></SEND></data></record>
+<record><time><hour>13</hour><minute>16</minute><second>14</second><milisecond>183</milisecond></time><data><INFO>Print it</INFO></data></record>

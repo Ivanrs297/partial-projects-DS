@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rootElement>
+<log>
+<record><time><hour>20</hour><minute>58</minute><second>56</second><milisecond>113</milisecond></time><data><developer>11180598735405056</developer></data></record>
+<record><time><hour>20</hour><minute>58</minute><second>56</second><milisecond>122</milisecond></time><data><developer>Adding Python Proccess Test_1</developer></data></record>
+<record><time><hour>20</hour><minute>58</minute><second>59</second><milisecond>168</milisecond></time><data><INFO>NOT FOUND, Looking for:Test_1</INFO></data></record>
