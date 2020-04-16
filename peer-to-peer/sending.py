@@ -60,24 +60,3 @@ def get_db_from_peer(peer):
             break
         full_msg += msg.decode("utf-8")
     return full_msg
-
-# Run program
-if __name__ == '__main__':
-
-    peers_table = get_peers()
-    print("Peers: ", peers_table)
-    
-    # select a peer
-    peer_to_connect = peers_table.pop()
-
-    # Get DB from the peer
-    string_db = get_db_from_peer((peer_to_connect[0], 5000))
-
-    # Convert the response string in JSON
-    json_db = json.loads(string_db)
-
-    # Write json in local DB
-    with open('db2.json', 'w') as outfile:
-        json.dump(json_db, outfile)
-
-    # Update DB

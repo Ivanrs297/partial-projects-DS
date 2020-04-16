@@ -35,6 +35,6 @@ if __name__ == '__main__':
 		json_db = json.loads(string_db)
 
 		# Write json in local DB
-		with open('db2.json', 'w') as outfile:
+		with open('db.json', 'w') as outfile:
 			json.dump(json_db, outfile)
 
