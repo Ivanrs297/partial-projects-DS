@@ -20,10 +20,11 @@ def get_peers(multicast_group_ip, udp_port, alias):
     # local network segment.
     ttl = struct.pack('b', 1)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
-
+    print("In geetting peers!")
     try:
 
-        message = "Hi, i´m ", alias
+        # message = "Hi, i´m ", alias
+        message = "Hi, I`m: " + alias
         message = message.encode()
 
         # Send data to the multicast group
@@ -43,7 +44,7 @@ def get_peers(multicast_group_ip, udp_port, alias):
                 print('Timed out, no more responses')
                 break
             else:
-                print('Received "%s" from %s' % (data.decode('utf-8'), peer))
+                print('Received "%s" from %s' % (data.decode('utf-8'), peer_to_connect))
 
     finally:
         print('Closing socket')
@@ -60,3 +61,7 @@ def get_db_from_peer(peer):
             break
         full_msg += msg.decode("utf-8")
     return full_msg
+
+
+if __name__ == '__main__':
+    get_peers('224.3.29.71', 10000, 'Ivan')

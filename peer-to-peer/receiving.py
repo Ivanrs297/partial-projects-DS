@@ -19,8 +19,8 @@ def get_bytes_db():
 
 # Function to listen UDP connections
 def listen_udp(multicast_group, udp_port):
-    # multicast_group = '224.3.29.71'
-    server_address = ('', udp_port) # IP, PORT
+    multicast_group = '224.3.29.71'
+    server_address = ('', 10000) # IP, PORT
 
     # Create the socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -62,3 +62,7 @@ def listen_tcp(tcp_port):
         print("Connection from ", address, "has been established")
         clientsocket.sendall(get_bytes_db())
         clientsocket.close()  # Close the conection
+
+
+if __name__ == '__main__':
+    listen_udp('224.3.29.71', 10000)
