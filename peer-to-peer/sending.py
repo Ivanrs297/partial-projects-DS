@@ -6,6 +6,7 @@ import json
 def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
     peers_table = []  # List of reachable peers
+    hash_table = []  # List of hashes of DB
 
     multicast_group = (multicast_group_ip, udp_port)
 
@@ -36,23 +37,24 @@ def get_peers(multicast_group_ip, udp_port, alias, hostname):
         while True:
             print('Waiting to receive ACK...')
             try:
-                data, peer_to_connect = sock.recvfrom(10)
+                hash_data, peer_to_connect = sock.recvfrom(10)
 
                 if ( peer_to_connect[0] != hostname ):
                     # Add the peer in the table
                     peers_table.append(peer_to_connect)
+                    hash_table.append(hash_data)
 
             except socket.timeout:
                 print('Timed out, no more responses')
                 break
             else:
                 if ( peer_to_connect[0] != hostname ):
-                    print('Received "%s" from %s' % (data.decode('utf-8'), peer_to_connect))
+                    print('Received "%s" from %s' % (hash_data.decode('utf-8'), peer_to_connect))
 
     finally:
         print('Closing socket')
         sock.close()
-        return peers_table
+        return peers_table, hash_table
 
 def get_db_from_peer(peer):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -3,19 +3,33 @@ import struct
 import sys
 import json
 import threading
+import hashlib
 
 
-
+# Return JSON DB encoded in bytes utf-8
 def get_bytes_db():
     with open('db.json') as json_file:
 
         # Get json-dictionary from file
         json_data = json.load(json_file)
+        
 
         # Converte Dictionary to bytes
         json_encode_data = json.dumps(json_data, indent = 2).encode('utf-8')
 
         return json_encode_data
+
+# Return the hash of JSON DB
+def get_hash_from_db():
+    with open('db.json') as json_file:
+        data = json.load(json_file)
+        data_json = json.dumps(data, sort_keys=True, indent=2)
+        hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
+        print(type(hash))
+        return hash
+
+
+
 
 # Function to listen UDP connections
 def listen_udp(multicast_group, udp_port, hostname):
@@ -45,8 +59,8 @@ def listen_udp(multicast_group, udp_port, hostname):
             print('Received %s bytes from %s' % (len(data), peer_to_connect))
             print(data.decode('utf-8'))
 
-            print('Sending ACK to', peer_to_connect)
-            sock.sendto(b'ACK', peer_to_connect)
+            print('Sending HASH to', peer_to_connect)
+            sock.sendto(bytes(get_hash_from_db(), 'utf-8'), peer_to_connect)
 
 
 # Function to listen TCP conections
