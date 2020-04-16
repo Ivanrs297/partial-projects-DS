@@ -78,13 +78,13 @@ def listen_tcp(tcp_port):
         print("Connection from ", address, "has been established")
 
         income_msg = clientsocket.recv(8)
-        if (len(income_msg > 0)):
+        if (len(income_msg) > 0):
             while True:
                 msg = clientsocket.recv(8)  # size of buffer at time, bit stream
                 if len(msg) <= 0:
                     break
                 income_msg += msg.decode("utf-8")
-                
+
         if (len(income_msg) == 0):
             print("No message Receive")
         else:
