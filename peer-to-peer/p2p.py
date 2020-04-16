@@ -15,13 +15,14 @@ if __name__ == '__main__':
 	TCP_PORT = 5000
 	ALIAS = 'Laptop Ivan' # Rasp1, Laptop 2, etc
 
+	# Get IP of Host
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	s.connect(("8.8.8.8", 80))
 	print("Host IP: ", s.getsockname()[0])
 	HOSTNAME = s.getsockname()[0]
 	s.close()
 
-	# Listener Threads
+	# Listenings Threads
 	UDP_LISTENER = threading.Thread(target=listen_udp, args=(MULTICAST_GROUP_IP, UDP_PORT, HOSTNAME,))
 	TCP_LISTENER = threading.Thread(target=listen_tcp, args=(TCP_PORT,))
 	UDP_LISTENER.start()
@@ -31,7 +32,7 @@ if __name__ == '__main__':
 
 	# Get Peers by UDP
 	peers_table = get_peers(MULTICAST_GROUP_IP, UDP_PORT, ALIAS, HOSTNAME)
-	print("Peers: ", peers_table)
+	print("Peers Table: ", peers_table)
 
 	if (len(peers_table) > 0):
 		# select a peer
