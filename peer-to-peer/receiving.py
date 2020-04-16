@@ -18,12 +18,14 @@ def get_bytes_db():
         return json_encode_data
 
 # Function to listen UDP connections
-def listen_udp(multicast_group, udp_port):
+def listen_udp(multicast_group, udp_port, hostname):
     multicast_group = '224.3.29.71'
     server_address = ('', 10000) # IP, PORT
 
     # Create the socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
+
 
     # Bind to the server address
     sock.bind(server_address)
@@ -37,13 +39,14 @@ def listen_udp(multicast_group, udp_port):
     # Receive/respond loop
     while True:
         print('\nListening UDP...')
-        data, address = sock.recvfrom(1024)
-        
-        print('Received %s bytes from %s' % (len(data), address))
-        print(data.decode('utf-8'))
+        data, peer_to_connect = sock.recvfrom(1024)
 
-        print('Sending ACK to', address)
-        sock.sendto(b'ACK', address)
+        if ( peer_to_connect[0] != hostname ):
+            print('Received %s bytes from %s' % (len(data), peer_to_connect))
+            print(data.decode('utf-8'))
+
+            print('Sending ACK to', peer_to_connect)
+            sock.sendto(b'ACK', peer_to_connect)
 
 
 # Function to listen TCP conections

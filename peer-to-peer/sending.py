@@ -3,7 +3,7 @@ import struct
 import sys
 import json
 
-def get_peers(multicast_group_ip, udp_port, alias):
+def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
     peers_table = []  # List of reachable peers
 
@@ -11,6 +11,8 @@ def get_peers(multicast_group_ip, udp_port, alias):
 
     # Create the datagram socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
+
 
     # Set a timeout so the socket does not block indefinitely when trying
     # to receive data.
@@ -20,7 +22,6 @@ def get_peers(multicast_group_ip, udp_port, alias):
     # local network segment.
     ttl = struct.pack('b', 1)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
-    print("In geetting peers!")
     try:
 
         # message = "Hi, i´m ", alias
@@ -37,14 +38,16 @@ def get_peers(multicast_group_ip, udp_port, alias):
             try:
                 data, peer_to_connect = sock.recvfrom(10)
 
-                # Add the peer in the table
-                peers_table.append(peer_to_connect)
+                if ( peer_to_connect[0] != hostname ):
+                    # Add the peer in the table
+                    peers_table.append(peer_to_connect)
 
             except socket.timeout:
                 print('Timed out, no more responses')
                 break
             else:
-                print('Received "%s" from %s' % (data.decode('utf-8'), peer_to_connect))
+                if ( peer_to_connect[0] != hostname ):
+                    print('Received "%s" from %s' % (data.decode('utf-8'), peer_to_connect))
 
     finally:
         print('Closing socket')
@@ -53,6 +56,8 @@ def get_peers(multicast_group_ip, udp_port, alias):
 
 def get_db_from_peer(peer):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
+
     s.connect(peer) 
     full_msg = ''
     while True:
