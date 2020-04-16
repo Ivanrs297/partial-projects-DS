@@ -79,6 +79,8 @@ def listen_tcp(tcp_port):
 
         income_msg = clientsocket.recv(8)
         if (len(income_msg) > 0):
+            income_msg = income_msg.decode("utf-8")
+
             while True:
                 msg = clientsocket.recv(8)  # size of buffer at time, bit stream
                 if len(msg) <= 0:
