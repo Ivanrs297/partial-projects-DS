@@ -37,12 +37,12 @@ def get_peers(multicast_group_ip, udp_port, alias, hostname):
         while True:
             print('Waiting to receive ACK...')
             try:
-                hash_data, peer_to_connect = sock.recvfrom(10)
+                hash_data, peer_to_connect = sock.recvfrom(32) # size of buffer in characters
 
                 if ( peer_to_connect[0] != hostname ):
                     # Add the peer in the table
                     peers_table.append(peer_to_connect)
-                    hash_table.append(hash_data)
+                    hash_table.append(hash_data.decode('utf-8'))
 
             except socket.timeout:
                 print('Timed out, no more responses')
@@ -56,12 +56,16 @@ def get_peers(multicast_group_ip, udp_port, alias, hostname):
         sock.close()
         return peers_table, hash_table
 
+# Establish TCP Conection 
 def get_db_from_peer(peer):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
 
     s.connect(peer) 
     full_msg = ''
+    sending_msg = "HOLA mundo"
+    s.sendall(bytes(sending_msg, 'utf-8'))
+
     while True:
         msg = s.recv(8)  # size of buffer at time, bit stream
         if len(msg) <= 0:

@@ -50,10 +50,18 @@ if __name__ == '__main__':
 
 		# Convert the response string in JSON
 		json_db = json.loads(string_db)
+		data_json = json.dumps(json_db, sort_keys=True, indent=2)
+		hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
+		# hash = '68b67e4f9944a00b3a6c38b03c110206' # Wrong hash
+		
+		# Check if the DB hashes are equal
+		if (hash == hash_to_compare):
+			print("Success! The DB Hashes are equal")
+			# Write json in local DB
+			with open('db.json', 'w') as outfile:
+				json.dump(json_db, outfile)
 
-		# Write json in local DB
-		with open('db.json', 'w') as outfile:
-			json.dump(json_db, outfile)
-
-		print("DB Updated!")
+			print("DB Updated!")
+		else:
+			print("Error: The Hashes are not equal")
 

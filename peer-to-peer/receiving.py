@@ -25,7 +25,6 @@ def get_hash_from_db():
         data = json.load(json_file)
         data_json = json.dumps(data, sort_keys=True, indent=2)
         hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
-        print(type(hash))
         return hash
 
 
@@ -77,6 +76,18 @@ def listen_tcp(tcp_port):
         print('\nListening TCP...')
         clientsocket, address = s.accept()
         print("Connection from ", address, "has been established")
+
+        income_msg = ''
+        while True:
+            msg = s.recv(8)  # size of buffer at time, bit stream
+            if len(msg) <= 0:
+                break
+            income_msg += msg.decode("utf-8")
+        if (len(income_msg) == 0):
+            print("No message Receive")
+        else:
+            print("MSG RECEIVE: ", income_msg)
+
         clientsocket.sendall(get_bytes_db())
         clientsocket.close()  # Close the conection
 
