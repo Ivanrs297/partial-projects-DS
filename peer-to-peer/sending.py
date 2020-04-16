@@ -64,7 +64,7 @@ def get_db_from_peer(peer):
     s.connect(peer) 
     full_msg = ''
     sending_msg = "HOLA mundo"
-    s.sendall(bytes(sending_msg, 'utf-8'))
+    s.sendall(sending_msg.encode('utf-8'))
 
     while True:
         msg = s.recv(8)  # size of buffer at time, bit stream
