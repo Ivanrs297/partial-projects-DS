@@ -62,6 +62,20 @@ def listen_udp(multicast_group, udp_port, hostname):
             sock.sendto(bytes(get_hash_from_db(), 'utf-8'), peer_to_connect)
 
 
+def catch_msg(clientsocket):
+    income_msg = ''
+
+    while True:
+        msg = clientsocket.recv(8)  # size of buffer at time, bit stream
+        if len(msg) <= 0:
+            break
+        income_msg += msg.decode("utf-8")
+
+    if (len(income_msg) == 0):
+        print("No message Receive")
+    else:
+        print("MSG RECEIVE: ", income_msg)
+
 # Function to listen TCP conections
 def listen_tcp(tcp_port):
     server_address = ('', tcp_port) # IP, PORT
@@ -69,28 +83,13 @@ def listen_tcp(tcp_port):
     s.bind(server_address)
     s.listen(5)
 
-    full_msg = ''
-    send_msg = "Welcome"
-
     while True:
         print('\nListening TCP...')
         clientsocket, address = s.accept()
         print("Connection from ", address, "has been established")
 
-        income_msg = clientsocket.recv(8)
-        if (len(income_msg) > 0):
-            income_msg = income_msg.decode("utf-8")
-
-            while True:
-                msg = clientsocket.recv(8)  # size of buffer at time, bit stream
-                if len(msg) <= 0:
-                    break
-                income_msg += msg.decode("utf-8")
-
-        if (len(income_msg) == 0):
-            print("No message Receive")
-        else:
-            print("MSG RECEIVE: ", income_msg)
+        catch_incomming_msg = threading.Thread(target=catch_msg, args=(clientsocket,))
+        catch_incomming_msg.start()
 
         clientsocket.sendall(get_bytes_db())
         clientsocket.close()  # Close the conection
