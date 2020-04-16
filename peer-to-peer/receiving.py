@@ -59,6 +59,6 @@ def listen_tcp(tcp_port):
     while True:
         print('\nListening TCP...')
         clientsocket, address = s.accept()
-        print(f"Connection from {address} has been established")
+        print("Connection from ", address, "has been established")
         clientsocket.sendall(get_bytes_db())
         clientsocket.close()  # Close the conection
