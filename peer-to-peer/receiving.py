@@ -79,7 +79,7 @@ def listen_tcp(tcp_port):
 
         income_msg = ''
         while True:
-            msg = s.recv(8)  # size of buffer at time, bit stream
+            msg = clientsocket.recv(8)  # size of buffer at time, bit stream
             if len(msg) <= 0:
                 break
             income_msg += msg.decode("utf-8")
