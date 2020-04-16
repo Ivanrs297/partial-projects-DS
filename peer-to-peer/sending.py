@@ -23,7 +23,7 @@ def get_peers(multicast_group_ip, udp_port, alias):
 
     try:
 
-        message = f"Hi, i´m {alias}"
+        message = "Hi, i´m ", alias
         message = message.encode()
 
         # Send data to the multicast group
