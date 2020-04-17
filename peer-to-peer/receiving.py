@@ -71,17 +71,17 @@ def listen_tcp(tcp_port):
 
     while True:
         print('\nListening TCP...')
-        clientsocket, address = s.accept()
+        peer_socket, address = s.accept()
         print("Connection from ", address, "has been established")
 
-        msg = clientsocket.recv(1024)  # size of buffer at time, bit stream
+        msg = peer_socket.recv(1024)  # size of buffer at time, bit stream
         msg = msg.decode('utf-8')
 
         if (msg == "GETDB"):
-            clientsocket.sendall(get_bytes_db())
+            peer_socket.sendall(get_bytes_db())
         else:
             hash_from_peer = msg;
-            incoming_db = s.recv(1024)  # receive message
+            incoming_db = peer_socket.recv(1024)  # receive message
             
             # Convert the response string in JSON
             json_db = json.loads(incoming_db.decode('utf-8'))
@@ -99,7 +99,7 @@ def listen_tcp(tcp_port):
             else:
                 print("Error: The Hashes are not equal")
 
-        clientsocket.close()  # Close the conection
+        peer_socket.close()  # Close the conection
 
 
 if __name__ == '__main__':
