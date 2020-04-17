@@ -4,6 +4,7 @@ import sys
 import json
 from receiving import *
 
+
 def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
     peers_table = []  # List of reachable peers

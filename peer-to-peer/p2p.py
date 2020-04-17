@@ -1,5 +1,5 @@
-from receiving import *
 from sending import *
+from receiving import *
 from tinydb import TinyDB, Query
 import threading
 import time
@@ -22,6 +22,10 @@ def check_db(string_db, hash_to_compare):
 		print("Error: The Hashes are not equal")
 		return None, False
 
+def updates_peers_db(peers_table, tcp_port):
+	for peer in peers_table:
+		update_process = threading.Thread(target=update_db_to_peer, args=((peer[0], tcp_port),))
+		update_process.start()
 
 if __name__ == '__main__':
 
@@ -54,21 +58,21 @@ if __name__ == '__main__':
 
 	if (len(peers_table) > 0):
 		# select a peer
-		peer_to_connect = peers_table.pop()
+		peer_to_connect = peers_table[0]
 
 		# select the hash DB of peer
-		hash_to_compare = hash_table.pop()
+		hash_to_compare = hash_table[0]
 
 		# # Get DB from the peer by TCP
-		# string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
-		# db_processed, is_correct = check_db(string_db, hash_to_compare)
+		string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
+		db_processed, is_correct = check_db(string_db, hash_to_compare)
 
-		# if (is_correct):
-		# 	# Write json in local DB
-		# 	with open('db.json', 'w') as outfile:
-		# 		json.dump(db_processed, outfile)
-		# 	print("DB Updated!")
+		if (is_correct):
+			# Write json in local DB
+			with open('db.json', 'w') as outfile:
+				json.dump(db_processed, outfile)
+			print("DB Updated!")
 		
-
-		update_db_to_peer((peer_to_connect[0], TCP_PORT))
+		# updates_peers_db(peers_table, TCP_PORT)
+		# update_db_to_peer((peer_to_connect[0], TCP_PORT))
 

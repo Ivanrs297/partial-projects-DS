@@ -28,9 +28,6 @@ def get_hash_from_db():
         hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
         return hash
 
-
-
-
 # Function to listen UDP connections
 def listen_udp(multicast_group, udp_port, hostname):
     multicast_group = '224.3.29.71'
@@ -61,7 +58,6 @@ def listen_udp(multicast_group, udp_port, hostname):
 
             print('Sending HASH to', peer_to_connect)
             sock.sendto(bytes(get_hash_from_db(), 'utf-8'), peer_to_connect)
-
 
 # Function to listen TCP conections
 def listen_tcp(tcp_port):
