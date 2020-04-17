@@ -19,7 +19,7 @@ def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
     # Set a timeout so the socket does not block indefinitely when trying
     # to receive data.
-    sock.settimeout(1)
+    sock.settimeout(5)
 
     # Set the time-to-live for messages to 1 so they do not go past the
     # local network segment.

@@ -48,7 +48,6 @@ if __name__ == '__main__':
 	TCP_LISTENER.start()
 	UDP_LISTENER.start()
 
-
 	# time.sleep(3)
 
 	# Get Peers by UDP
@@ -73,6 +72,8 @@ if __name__ == '__main__':
 				json.dump(db_processed, outfile)
 			print("DB Updated!")
 		
+
+		# Update DB to peers
 		# updates_peers_db(peers_table, TCP_PORT)
 		# update_db_to_peer((peer_to_connect[0], TCP_PORT))
 

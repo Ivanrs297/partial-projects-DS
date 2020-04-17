@@ -2,7 +2,6 @@ import socket
 import struct
 import sys
 import json
-import threading
 import hashlib
 from p2p import check_db
 
@@ -64,7 +63,7 @@ def listen_tcp(tcp_port):
     server_address = ('', tcp_port) # IP, PORT
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(server_address)
-    s.listen(5)
+    s.listen(20)
 
     while True:
         print('\nListening TCP...')
