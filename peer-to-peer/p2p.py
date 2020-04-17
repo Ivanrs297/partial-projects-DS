@@ -8,7 +8,7 @@ def check_db(string_db, hash_to_compare):
 
 	# Convert the response string in JSON
 	json_db = json.loads(string_db)
-	data_json = json.dumps(json_db, sort_keys=True, indent=2)
+	data_json = json.dumps(json_db, indent=2)
 
 	# Get Hash from Received DB
 	hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
