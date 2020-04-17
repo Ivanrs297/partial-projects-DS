@@ -74,7 +74,11 @@ def update_db_to_peer(peer):
 
     s.connect(peer) 
     hash_db = get_hash_from_db()
+
+    # Send the Hash of DB
     s.sendall(hash_db.encode('utf-8'))
+
+    # Send the Bytes of DB
     s.sendall(get_bytes_db())
 
     incoming_msg = s.recv(1024)  # receive message

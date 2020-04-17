@@ -4,6 +4,7 @@ import sys
 import json
 import threading
 import hashlib
+from p2p import check_db
 
 
 # Return JSON DB encoded in bytes utf-8
@@ -77,27 +78,40 @@ def listen_tcp(tcp_port):
         msg = peer_socket.recv(1024)  # size of buffer at time, bit stream
         msg = msg.decode('utf-8')
 
+        # Return DB
         if (msg == "GETDB"):
             peer_socket.sendall(get_bytes_db())
         else:
+            # Update the local DB
+
+            # Get the hash from peer
             hash_from_peer = msg;
-            incoming_db = peer_socket.recv(1024)  # receive message
+
+            # Get the DB from peer
+            incoming_db = peer_socket.recv(1024)
             
             # Convert the response string in JSON
-            json_db = json.loads(incoming_db.decode('utf-8'))
-            data_json = json.dumps(json_db, sort_keys=True, indent=2)
-            hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
+            # json_db = json.loads(incoming_db.decode('utf-8'))
+            # data_json = json.dumps(json_db, sort_keys=True, indent=2)
+            # hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
             # hash = '68b67e4f9944a00b3a6c38b03c110206' # Wrong hash
             
-            # Check if the DB hashes are equal
-            if (hash == hash_from_peer):
-                print("Success! The DB Hashes are equal")
+            db_processed, is_correct = check_db(incoming_db.decode('utf-8'), hash_from_peer)
+            if (is_correct):
                 # Write json in local DB
                 with open('db.json', 'w') as outfile:
-                    json.dump(json_db, outfile)
+                    json.dump(db_processed, outfile)
                 print("DB Updated!")
-            else:
-                print("Error: The Hashes are not equal")
+
+            # # Check if the DB hashes are equal
+            # if (hash == hash_from_peer):
+            #     print("Success! The DB Hashes are equal")
+            #     # Write json in local DB
+            #     with open('db.json', 'w') as outfile:
+            #         json.dump(json_db, outfile)
+            #     print("DB Updated!")
+            # else:
+            #     print("Error: The Hashes are not equal")
 
         peer_socket.close()  # Close the conection
 
