@@ -71,7 +71,7 @@ def get_db_from_peer(peer):
 
 def update_db_to_peer(peer):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
+    # s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
 
     s.connect(peer) 
     hash_db = get_hash_from_db()
@@ -84,6 +84,8 @@ def update_db_to_peer(peer):
 
     # incoming_msg = s.recv(1024)  # receive message
     # return incoming_msg.decode('utf-8')
+    s.close()  # Close the conection
+
 
 
 if __name__ == '__main__':
