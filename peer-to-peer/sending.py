@@ -67,6 +67,18 @@ def get_db_from_peer(peer):
     incoming_msg = s.recv(1024)  # receive message
     return incoming_msg.decode('utf-8')
 
+def update_db_to_peer(peer):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
+
+    s.connect(peer) 
+    sending_msg = "UPDATE"
+    s.sendall(sending_msg.encode('utf-8'))
+    sending_msg = "HELLO"
+    s.sendall(sending_msg.encode('utf-8'))
+    incoming_msg = s.recv(1024)  # receive message
+    return incoming_msg.decode('utf-8')
+
 
 if __name__ == '__main__':
     get_peers('224.3.29.71', 10000, 'Ivan')

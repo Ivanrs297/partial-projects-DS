@@ -65,3 +65,6 @@ if __name__ == '__main__':
 		else:
 			print("Error: The Hashes are not equal")
 
+		
+		update_db_to_peer((peer_to_connect[0], TCP_PORT))
+
