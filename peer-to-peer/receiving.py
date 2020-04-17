@@ -23,7 +23,7 @@ def get_bytes_db():
 def get_hash_from_db():
     with open('db.json') as json_file:
         data = json.load(json_file)
-        data_json = json.dumps(data, sort_keys=True, indent=2)
+        data_json = json.dumps(data, indent = 2)
         hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
         return hash
 
