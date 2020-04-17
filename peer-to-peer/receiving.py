@@ -70,7 +70,7 @@ def listen_tcp(tcp_port):
         peer_socket, address = s.accept()
         print("Connection from ", address, "has been established")
 
-        msg = peer_socket.recv(1024)  # size of buffer at time, bit stream
+        msg = peer_socket.recv(32)  # size of buffer at time, bit stream
         msg = msg.decode('utf-8')
 
         # Return DB
