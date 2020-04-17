@@ -64,15 +64,15 @@ if __name__ == '__main__':
 		hash_to_compare = hash_table[0]
 
 		# Get DB from the peer by TCP
-		# string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
-		# db_processed, is_correct = check_db(string_db, hash_to_compare)
+		string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
+		db_processed, is_correct = check_db(string_db, hash_to_compare)
 
-		# if (is_correct):
-		# 	# Write json in local DB
-		# 	with open('db.json', 'w') as outfile:
-		# 		json.dump(db_processed, outfile)
-		# 	print("DB Updated!")
+		if (is_correct):
+			# Write json in local DB
+			with open('db.json', 'w') as outfile:
+				json.dump(db_processed, outfile)
+			print("DB Updated!")
 		
-		updates_peers_db(peers_table, TCP_PORT)
+		# updates_peers_db(peers_table, TCP_PORT)
 		# update_db_to_peer((peer_to_connect[0], TCP_PORT))
 
