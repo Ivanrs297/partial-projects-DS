@@ -2,6 +2,7 @@ import socket
 import struct
 import sys
 import json
+from receiving import *
 
 def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
@@ -64,18 +65,18 @@ def get_db_from_peer(peer):
     s.connect(peer) 
     sending_msg = "GETDB"
     s.sendall(sending_msg.encode('utf-8'))
-    incoming_msg = s.recv(1024)  # receive message
-    return incoming_msg.decode('utf-8')
+    incoming_db = s.recv(1024)  # receive message
+    return incoming_db.decode('utf-8')
 
 def update_db_to_peer(peer):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
 
     s.connect(peer) 
-    sending_msg = "UPDATE"
-    s.sendall(sending_msg.encode('utf-8'))
-    sending_msg = "HELLO"
-    s.sendall(sending_msg.encode('utf-8'))
+    hash_db = get_hash_from_db()
+    s.sendall(hash_db.encode('utf-8'))
+    s.sendall(get_bytes_db())
+
     incoming_msg = s.recv(1024)  # receive message
     return incoming_msg.decode('utf-8')
 

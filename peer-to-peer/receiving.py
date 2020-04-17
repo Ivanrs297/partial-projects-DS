@@ -80,9 +80,24 @@ def listen_tcp(tcp_port):
         if (msg == "GETDB"):
             clientsocket.sendall(get_bytes_db())
         else:
-            print("MSG: ", msg)
-            msg = clientsocket.recv(1024)  # size of buffer at time, bit stream
-            print("MSG2: ", msg)
+            hash_from_peer = msg;
+            incoming_db = s.recv(1024)  # receive message
+            
+            # Convert the response string in JSON
+            json_db = json.loads(incoming_db.decode('utf-8'))
+            data_json = json.dumps(json_db, sort_keys=True, indent=2)
+            hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
+            # hash = '68b67e4f9944a00b3a6c38b03c110206' # Wrong hash
+            
+            # Check if the DB hashes are equal
+            if (hash == hash_from_peer):
+                print("Success! The DB Hashes are equal")
+                # Write json in local DB
+                with open('db.json', 'w') as outfile:
+                    json.dump(json_db, outfile)
+                print("DB Updated!")
+            else:
+                print("Error: The Hashes are not equal")
 
         clientsocket.close()  # Close the conection
 
