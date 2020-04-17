@@ -88,10 +88,12 @@ def listen_tcp(tcp_port):
         clientsocket, address = s.accept()
         print("Connection from ", address, "has been established")
 
-        catch_incomming_msg = threading.Thread(target=catch_msg, args=(clientsocket,))
-        catch_incomming_msg.start()
+        msg = clientsocket.recv(1024)  # size of buffer at time, bit stream
+        msg = msg.decode('utf-8')
 
-        clientsocket.sendall(get_bytes_db())
+        if (msg == "GETDB"):
+            clientsocket.sendall(get_bytes_db())
+
         clientsocket.close()  # Close the conection
 
 

@@ -62,16 +62,10 @@ def get_db_from_peer(peer):
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse de PORT
 
     s.connect(peer) 
-    full_msg = ''
-    sending_msg = "HOLA mundo"
+    sending_msg = "GETDB"
     s.sendall(sending_msg.encode('utf-8'))
-
-    while True:
-        msg = s.recv(8)  # size of buffer at time, bit stream
-        if len(msg) <= 0:
-            break
-        full_msg += msg.decode("utf-8")
-    return full_msg
+    incoming_msg = s.recv(1024)  # receive message
+    return incoming_msg.decode('utf-8')
 
 
 if __name__ == '__main__':
