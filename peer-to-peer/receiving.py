@@ -81,6 +81,7 @@ def listen_tcp(tcp_port):
 
             # Get the hash from peer
             hash_from_peer = msg;
+            print("RECEIVE HASH: ", hash_from_peer)
 
             # Get the DB from peer
             incoming_db = peer_socket.recv(1024)
