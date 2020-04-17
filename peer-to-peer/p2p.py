@@ -44,10 +44,11 @@ if __name__ == '__main__':
 	s.close()
 
 	# Listenings Threads
-	UDP_LISTENER = threading.Thread(target=listen_udp, args=(MULTICAST_GROUP_IP, UDP_PORT, HOSTNAME,))
 	TCP_LISTENER = threading.Thread(target=listen_tcp, args=(TCP_PORT,))
-	UDP_LISTENER.start()
+	UDP_LISTENER = threading.Thread(target=listen_udp, args=(MULTICAST_GROUP_IP, UDP_PORT, HOSTNAME,))
 	TCP_LISTENER.start()
+	UDP_LISTENER.start()
+
 
 	time.sleep(3)
 
@@ -63,7 +64,7 @@ if __name__ == '__main__':
 		# select the hash DB of peer
 		hash_to_compare = hash_table[0]
 
-		# # Get DB from the peer by TCP
+		# Get DB from the peer by TCP
 		string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
 		db_processed, is_correct = check_db(string_db, hash_to_compare)
 
