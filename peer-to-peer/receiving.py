@@ -84,8 +84,9 @@ def listen_tcp(tcp_port):
 
             # Get the DB from peer
             incoming_db = peer_socket.recv(1024)
+            incoming_db = incoming_db.decode('utf-8')
             
-            db_processed, is_correct = check_db(incoming_db.decode('utf-8'), hash_from_peer)
+            db_processed, is_correct = check_db(incoming_db, hash_from_peer)
             if (is_correct):
                 # Write json in local DB
                 with open('db.json', 'w') as outfile:
