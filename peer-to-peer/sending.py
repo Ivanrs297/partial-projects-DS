@@ -19,7 +19,7 @@ def get_peers(multicast_group_ip, udp_port, alias, hostname):
 
     # Set a timeout so the socket does not block indefinitely when trying
     # to receive data.
-    sock.settimeout(0.2)
+    sock.settimeout(1)
 
     # Set the time-to-live for messages to 1 so they do not go past the
     # local network segment.
@@ -82,8 +82,8 @@ def update_db_to_peer(peer):
     # Send the Bytes of DB
     s.sendall(get_bytes_db())
 
-    incoming_msg = s.recv(1024)  # receive message
-    return incoming_msg.decode('utf-8')
+    # incoming_msg = s.recv(1024)  # receive message
+    # return incoming_msg.decode('utf-8')
 
 
 if __name__ == '__main__':

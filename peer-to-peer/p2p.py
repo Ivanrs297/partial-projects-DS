@@ -24,8 +24,7 @@ def check_db(string_db, hash_to_compare):
 
 def updates_peers_db(peers_table, tcp_port):
 	for peer in peers_table:
-		update_process = threading.Thread(target=update_db_to_peer, args=((peer[0], tcp_port),))
-		update_process.start()
+		update_db_to_peer((peer[0], TCP_PORT))
 
 if __name__ == '__main__':
 
@@ -34,7 +33,7 @@ if __name__ == '__main__':
 	MULTICAST_GROUP_IP = '224.3.29.71'
 	UDP_PORT = 10000
 	TCP_PORT = 5000
-	ALIAS = 'Laptop Ivan' # Rasp1, Laptop 2, etc
+	ALIAS = 'Laptop Ivan 1' # Rasp1, Laptop 2, etc
 
 	# Get IP of Host
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -50,7 +49,7 @@ if __name__ == '__main__':
 	UDP_LISTENER.start()
 
 
-	time.sleep(3)
+	# time.sleep(3)
 
 	# Get Peers by UDP
 	peers_table, hash_table = get_peers(MULTICAST_GROUP_IP, UDP_PORT, ALIAS, HOSTNAME)
@@ -65,15 +64,15 @@ if __name__ == '__main__':
 		hash_to_compare = hash_table[0]
 
 		# Get DB from the peer by TCP
-		string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
-		db_processed, is_correct = check_db(string_db, hash_to_compare)
+		# string_db = get_db_from_peer((peer_to_connect[0], TCP_PORT))
+		# db_processed, is_correct = check_db(string_db, hash_to_compare)
 
-		if (is_correct):
-			# Write json in local DB
-			with open('db.json', 'w') as outfile:
-				json.dump(db_processed, outfile)
-			print("DB Updated!")
+		# if (is_correct):
+		# 	# Write json in local DB
+		# 	with open('db.json', 'w') as outfile:
+		# 		json.dump(db_processed, outfile)
+		# 	print("DB Updated!")
 		
-		# updates_peers_db(peers_table, TCP_PORT)
+		updates_peers_db(peers_table, TCP_PORT)
 		# update_db_to_peer((peer_to_connect[0], TCP_PORT))
 

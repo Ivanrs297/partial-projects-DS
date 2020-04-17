@@ -86,28 +86,12 @@ def listen_tcp(tcp_port):
             # Get the DB from peer
             incoming_db = peer_socket.recv(1024)
             
-            # Convert the response string in JSON
-            # json_db = json.loads(incoming_db.decode('utf-8'))
-            # data_json = json.dumps(json_db, sort_keys=True, indent=2)
-            # hash = hashlib.md5(data_json.encode("utf-8")).hexdigest()
-            # hash = '68b67e4f9944a00b3a6c38b03c110206' # Wrong hash
-            
             db_processed, is_correct = check_db(incoming_db.decode('utf-8'), hash_from_peer)
             if (is_correct):
                 # Write json in local DB
                 with open('db.json', 'w') as outfile:
                     json.dump(db_processed, outfile)
                 print("DB Updated!")
-
-            # # Check if the DB hashes are equal
-            # if (hash == hash_from_peer):
-            #     print("Success! The DB Hashes are equal")
-            #     # Write json in local DB
-            #     with open('db.json', 'w') as outfile:
-            #         json.dump(json_db, outfile)
-            #     print("DB Updated!")
-            # else:
-            #     print("Error: The Hashes are not equal")
 
         peer_socket.close()  # Close the conection
 
